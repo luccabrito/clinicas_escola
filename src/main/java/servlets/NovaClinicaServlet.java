@@ -28,8 +28,12 @@ public class NovaClinicaServlet extends HttpServlet {
         Banco banco = new Banco();
         banco.adiciona(clinica);
         
-        RequestDispatcher rd = request.getRequestDispatcher("/listaClinicas");
         request.setAttribute("clinica", clinica.getNome());
-        rd.forward(request, response);
+        
+        response.sendRedirect("listaClinicas");
+        
+//        RequestDispatcher rd = request.getRequestDispatcher("/listaClinicas");
+//        
+//        rd.forward(request, response);
 	}
 }

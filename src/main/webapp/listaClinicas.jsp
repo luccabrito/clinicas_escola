@@ -17,7 +17,9 @@
 	
 	<ul>
 	<c:forEach items="${clinicas }" var="clinica">
-		<li>${clinica.nome }, endereço: ${clinica.endereco }, telefone para contato: ${clinica.telefone } </li>
+		<li>${clinica.nome }, endereço: ${clinica.endereco }, telefone para contato: ${clinica.telefone }
+		<a href="/cadastro-clinicas-escola/removeClinica?id=${clinica.id }"> remove </a>
+		 </li>
 	</c:forEach>
 	</ul>
 </body>
