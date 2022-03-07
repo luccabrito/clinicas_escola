@@ -31,9 +31,5 @@ public class NovaClinicaServlet extends HttpServlet {
         request.setAttribute("clinica", clinica.getNome());
         
         response.sendRedirect("listaClinicas");
-        
-//        RequestDispatcher rd = request.getRequestDispatcher("/listaClinicas");
-//        
-//        rd.forward(request, response);
 	}
 }

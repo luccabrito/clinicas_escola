@@ -44,4 +44,13 @@ public class Banco {
 			}
 		}
 	}
+
+	public Clinica buscaClinicaPelaId(Integer id) {
+		for (Clinica clinica : lista) {
+			if (clinica.getId() == id) {
+				return clinica;
+			}
+		}
+		return null;
+	}
 }
