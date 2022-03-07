@@ -3,6 +3,7 @@ package servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,8 +28,8 @@ public class NovaClinicaServlet extends HttpServlet {
         Banco banco = new Banco();
         banco.adiciona(clinica);
         
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>Clínica " + nomeClinica + " cadastrada com sucesso!</body></html>");
-		
+        RequestDispatcher rd = request.getRequestDispatcher("/novaClinicaCriada.jsp");
+        request.setAttribute("clinica", clinica.getNome());
+        rd.forward(request, response);
 	}
 }
