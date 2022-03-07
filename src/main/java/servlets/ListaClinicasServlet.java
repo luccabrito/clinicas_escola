@@ -23,7 +23,7 @@ public class ListaClinicasServlet extends HttpServlet {
 		out.println("<html><body>");
         out.println("<ul>");
         for (Clinica clinica : lista) { 
-            out.println("<li>" + clinica.getNome() + "</li>");
+            out.println("<li>" + clinica.getNome() + ", endereço: " + clinica.getEndereco() + ", telefone para contato: " + clinica.getTelefone() + "</li>");
         }        
         out.println("</ul>");
         out.println("</body></html>");	
