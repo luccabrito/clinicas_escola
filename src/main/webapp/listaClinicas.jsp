@@ -8,6 +8,11 @@
 <title>JSTL</title>
 </head>
 <body>
+
+	<c:if test="${not empty clinica }">
+		Clínica ${ clinica } cadastrada com sucesso!
+	</c:if>
+	
 	Lista de clínicas: <br />
 	
 	<ul>

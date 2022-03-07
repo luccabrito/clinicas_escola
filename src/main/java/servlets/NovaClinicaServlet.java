@@ -28,7 +28,7 @@ public class NovaClinicaServlet extends HttpServlet {
         Banco banco = new Banco();
         banco.adiciona(clinica);
         
-        RequestDispatcher rd = request.getRequestDispatcher("/novaClinicaCriada.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/listaClinicas");
         request.setAttribute("clinica", clinica.getNome());
         rd.forward(request, response);
 	}
