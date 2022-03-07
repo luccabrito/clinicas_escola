@@ -15,7 +15,14 @@ public class NovaClinicaServlet extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		System.out.println("Cadastrando nova clínica");
+		
         String nomeClinica = request.getParameter("nome");
+        Clinica clinica = new Clinica();
+        clinica.setNome(nomeClinica);
+        
+        Banco banco = new Banco();
+        banco.adiciona(clinica);
+        
         PrintWriter out = response.getWriter();
         out.println("<html><body>Empresa " + nomeClinica + " cadastrada com sucesso!</body></html>");
 		
