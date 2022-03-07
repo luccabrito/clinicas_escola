@@ -24,7 +24,7 @@ public class NovaClinicaServlet extends HttpServlet {
         banco.adiciona(clinica);
         
         PrintWriter out = response.getWriter();
-        out.println("<html><body>Empresa " + nomeClinica + " cadastrada com sucesso!</body></html>");
+        out.println("<html><body>Clínica " + nomeClinica + " cadastrada com sucesso!</body></html>");
 		
 	}
 }
