@@ -17,8 +17,12 @@ public class NovaClinicaServlet extends HttpServlet {
 		System.out.println("Cadastrando nova clínica");
 		
         String nomeClinica = request.getParameter("nome");
+        String enderecoClinica = request.getParameter("endereco");
+        String telefoneClinica = request.getParameter("telefone");
         Clinica clinica = new Clinica();
         clinica.setNome(nomeClinica);
+        clinica.setEndereco(enderecoClinica);
+        clinica.setTelefone(telefoneClinica);
         
         Banco banco = new Banco();
         banco.adiciona(clinica);
