@@ -1,19 +1,18 @@
-package servlets;
+package acao;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import modelos.Banco;
+import modelos.Clinica;
 
-@WebServlet("/alteraClinica")
-public class AlteraClinicaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-
+public class AlteraClinica {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		String nomeClinica = request.getParameter("nome");
 		String enderecoClinica = request.getParameter("endereco");
 		String telefoneClinica = request.getParameter("telefone");
@@ -26,7 +25,6 @@ public class AlteraClinicaServlet extends HttpServlet {
 		clinica.setEndereco(enderecoClinica);
 		clinica.setTelefone(telefoneClinica);
 		
-		response.sendRedirect("listaClinicas");
+		response.sendRedirect("entrada?acao=ListaClinicas");
 	}
-
 }

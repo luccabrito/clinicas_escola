@@ -1,4 +1,4 @@
-package servlets;
+package modelos;
 
 public class Clinica {
 	

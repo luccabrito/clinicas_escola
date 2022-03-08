@@ -1,22 +1,22 @@
-package servlets;
+package acao;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/listaClinicas")
-public class ListaClinicasServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+import modelos.Banco;
+import modelos.Clinica;
 
+public class ListaClinicas {
+	
+	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+		
+		System.out.println("listando clinicas");
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Banco banco = new Banco();
 		List<Clinica> lista = banco.getClinicas();
 		
@@ -25,4 +25,5 @@ public class ListaClinicasServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/listaClinicas.jsp");
 		rd.forward(request, response);
 	}
+
 }
