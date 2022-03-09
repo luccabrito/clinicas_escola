@@ -10,7 +10,7 @@ import modelos.Clinica;
 
 public class NovaClinica {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
 		String nomeClinica = request.getParameter("nome");
         String enderecoClinica = request.getParameter("endereco");
@@ -26,6 +26,6 @@ public class NovaClinica {
         
         request.setAttribute("clinica", clinica.getNome());
         
-        response.sendRedirect("entrada?acao=ListaClinicas");
+        return "redirect:entrada?acao=ListaClinicas";
 	}
 }

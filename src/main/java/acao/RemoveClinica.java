@@ -9,14 +9,15 @@ import modelos.Banco;
 
 public class RemoveClinica {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
 		String paramId = request.getParameter("id");
 		Integer id = Integer.valueOf(paramId);
 		
 		Banco banco = new Banco();
 		banco.removeClinica(id);
 		
-		response.sendRedirect("entrada?acao=ListaClinicas");
+		return "redirect:entrada?acao=ListaClinicas";
 	}
 
 }

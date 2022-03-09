@@ -3,7 +3,6 @@ package acao;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +12,7 @@ import modelos.Clinica;
 
 public class ListaClinicas {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		
 		System.out.println("listando clinicas");
 
@@ -22,8 +21,6 @@ public class ListaClinicas {
 		
 		request.setAttribute("clinicas", lista);
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/listaClinicas.jsp");
-		rd.forward(request, response);
+		return "forward:listaClinicas.jsp";
 	}
-
 }

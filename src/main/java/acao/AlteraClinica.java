@@ -11,7 +11,7 @@ import modelos.Clinica;
 
 public class AlteraClinica {
 	
-	public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String nomeClinica = request.getParameter("nome");
 		String enderecoClinica = request.getParameter("endereco");
@@ -25,6 +25,6 @@ public class AlteraClinica {
 		clinica.setEndereco(enderecoClinica);
 		clinica.setTelefone(telefoneClinica);
 		
-		response.sendRedirect("entrada?acao=ListaClinicas");
+		return "redirect:entrada?acao=ListaClinicas";
 	}
 }
