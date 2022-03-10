@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelos.Banco;
 import modelos.Clinica;
 
-public class AlteraClinica {
+public class AlteraClinica implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSTL</title>
+<title>Lista de clínicas-escola</title>
 </head>
 <body>
 

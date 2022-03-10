@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import modelos.Banco;
 
-public class RemoveClinica {
+public class RemoveClinica implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		

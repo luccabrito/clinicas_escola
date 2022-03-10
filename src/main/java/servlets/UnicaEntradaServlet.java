@@ -9,12 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import acao.AlteraClinica;
-import acao.ListaClinicas;
-import acao.MostraClinica;
-import acao.NovaClinica;
-import acao.NovaClinicaForm;
-import acao.RemoveClinica;
+import acao.Acao;
 
 @WebServlet("/entrada")
 public class UnicaEntradaServlet extends HttpServlet {
@@ -22,30 +17,16 @@ public class UnicaEntradaServlet extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String paramAcao = request.getParameter("acao");
-		String nome = null;
+		String nomeDaClasse = "acao." + paramAcao;
 		
-		if (paramAcao.equals("ListaClinicas")) {
-			ListaClinicas acao = new ListaClinicas();
+		String nome;
+		try {
+			Class classe = Class.forName(nomeDaClasse);
+			Acao acao = (Acao) classe.newInstance();
 			nome = acao.executa(request, response);
-			
-		} else if (paramAcao.equals("RemoveClinica")) {
-			RemoveClinica acao = new RemoveClinica();
-			nome = acao.executa(request, response);
-			
-		} else if (paramAcao.equals("MostraClinica")) {
-			MostraClinica acao = new MostraClinica();
-			nome = acao.executa(request, response);
-			
-		} else if (paramAcao.equals("AlteraClinica")) {
-			AlteraClinica acao = new AlteraClinica();
-			nome = acao.executa(request, response);
-			
-		} else if (paramAcao.equals("NovaClinica")) {
-			NovaClinica acao = new NovaClinica();
-			nome = acao.executa(request, response);
-		} else if (paramAcao.equals("NovaClinicaForm")) {
-			NovaClinicaForm acao = new NovaClinicaForm();
-			nome = acao.executa(request, response);
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | ServletException
+				| IOException e) {
+			throw new ServletException(e);
 		}
 		
 		String[] direcionamento = nome.split(":");

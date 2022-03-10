@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelos.Banco;
 import modelos.Clinica;
 
-public class NovaClinica {
+public class NovaClinica implements Acao {
 	
 	public String executa(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
