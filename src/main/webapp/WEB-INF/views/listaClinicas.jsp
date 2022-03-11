@@ -8,6 +8,13 @@
 <title>Lista de clínicas-escola</title>
 </head>
 <body>
+<c:import url="logout-parcial.jsp" />
+
+Usuário logado: ${usuarioLogado.login }
+
+<br>
+<br>
+<br>
 
 	<c:if test="${not empty clinica }">
 		Clínica ${ clinica } cadastrada com sucesso!

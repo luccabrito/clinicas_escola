@@ -1,10 +1,12 @@
 package acao;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import modelos.Banco;
 import modelos.Usuario;
@@ -25,8 +27,14 @@ public class Login implements Acao {
 		
 		if(usuario != null) {
 			System.out.println("Usuario existe");
+			PrintWriter pw = response.getWriter();
+			pw.print("Usuário logado!");
+			HttpSession sessao = request.getSession();
+			sessao.setAttribute("usuarioLogado", usuario);
 			return "redirect:entrada?acao=ListaClinicas";
 		} else {
+			PrintWriter pw = response.getWriter();
+			pw.print("Usuário não encontrado!");
 			System.out.println("Usuario nao existe");
 			return "redirect:entrada?acao=LoginForm";
 		}	
